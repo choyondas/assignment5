@@ -21,22 +21,39 @@ function memory(extraConfiguration, memoryCapacity) {
     } else if (memoryCapacity == 'notFree') {
         memory.innerText = 20;
     }
-
+    /* 
+    getting innervalue from different field 
+    */
     const bestPrice = document.getElementById('bestPrice').innerText;
     const ExtraMemoryCost = document.getElementById('ExtraMemoryCost').innerText;
     const ExtraStorageCost = document.getElementById('ExtraStorageCost').innerText;
     const extraDeliveryCharge = document.getElementById('extraDeliveryCharge').innerText;
-
+    /*
+     getting Total Price 
+     */
     const Price = document.getElementById('totalPrice');
     Price.innerText = parseInt(bestPrice) + parseInt(ExtraMemoryCost) + parseInt(ExtraStorageCost) + parseInt(extraDeliveryCharge);
 
+    const yourTotal = document.getElementById('TotalAfterDiscount');
+    yourTotal.innerText = Price.innerText;
 
 
 
 };
 
 
+document.getElementById('apply').addEventListener('click', function() {
+    const inputField = document.getElementById('inputField');
+    let inputVlue = inputField.value;
+    if (inputVlue == 'stevekaku') {
+        const yourTotal = document.getElementById('TotalAfterDiscount');
+        const totalMoney = yourTotal.innerText;
+        const totalDiscount = (parseFloat(totalMoney) * 20) / 100;
+        yourTotal.innerText = totalMoney - totalDiscount;
+        inputField.value = '';
+    }
 
+})
 
 
 
