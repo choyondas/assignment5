@@ -2,24 +2,24 @@
 create a function to get the value of memory, storage etc 
 */
 
-function memory(extraConfiguration, memoryCapacity) {
-    const memory = document.getElementById(extraConfiguration);
-    const memoryCost = memory.innerText;
+function Price(extraConfiguration, Capacity) {
+    const modifiedPrice = document.getElementById(extraConfiguration);
+    const Cost = modifiedPrice.innerText;
 
-    if (memoryCapacity == 8) {
-        memory.innerText = 0;
-    } else if (memoryCapacity == 16) {
-        memory.innerText = 180;
-    } else if (memoryCapacity == 256) {
-        memory.innerText = 0;
-    } else if (memoryCapacity == 512) {
-        memory.innerText = 100;
-    } else if (memoryCapacity == '1TB') {
-        memory.innerText = 180;
-    } else if (memoryCapacity == 'free') {
-        memory.innerText = 0;
-    } else if (memoryCapacity == 'notFree') {
-        memory.innerText = 20;
+    if (Capacity == 8) {
+        modifiedPrice.innerText = 0;
+    } else if (Capacity == 16) {
+        modifiedPrice.innerText = 180;
+    } else if (Capacity == 256) {
+        modifiedPrice.innerText = 0;
+    } else if (Capacity == 512) {
+        modifiedPrice.innerText = 100;
+    } else if (Capacity == '1TB') {
+        modifiedPrice.innerText = 180;
+    } else if (Capacity == 'free') {
+        modifiedPrice.innerText = 0;
+    } else if (Capacity == 'notFree') {
+        modifiedPrice.innerText = 20;
     }
     /* 
     getting innervalue from different field 
@@ -45,32 +45,32 @@ function memory(extraConfiguration, memoryCapacity) {
 make memory section interactive
  */
 document.getElementById('8GBmemory').addEventListener('click', function() {
-    memory('ExtraMemoryCost', '8');
+    Price('ExtraMemoryCost', '8');
 
 });
 document.getElementById('16GBmemory').addEventListener('click', function() {
 
-    memory('ExtraMemoryCost', '16');
+    Price('ExtraMemoryCost', '16');
 });
 
 /* 
 make storage section interactive
  */
 document.getElementById('storage256').addEventListener('click', function() {
-    memory('ExtraStorageCost', '256');
+    Price('ExtraStorageCost', '256');
 });
 document.getElementById('storage512').addEventListener('click', function() {
-    memory('ExtraStorageCost', '512');
+    Price('ExtraStorageCost', '512');
 });
 document.getElementById('storage1TB').addEventListener('click', function() {
-    memory('ExtraStorageCost', '1TB');
+    Price('ExtraStorageCost', '1TB');
 });
 
 document.getElementById('freeDelivery').addEventListener('click', function() {
-    memory('extraDeliveryCharge', 'free')
+    Price('extraDeliveryCharge', 'free')
 });
 document.getElementById('DeliveryCharge').addEventListener('click', function() {
-    memory('extraDeliveryCharge', 'notFree')
+    Price('extraDeliveryCharge', 'notFree')
 });
 
 //discount part
@@ -88,10 +88,14 @@ document.getElementById('apply').addEventListener('click', function() {
         warning.style.display = 'none';
 
         inputField.value = '';
+
+        //warning message
     } else {
 
         warning.style.display = 'block';
         congratulation.style.display = 'none';
+
+        inputField.value = '';
     }
 
 })
