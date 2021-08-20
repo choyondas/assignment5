@@ -41,23 +41,6 @@ function memory(extraConfiguration, memoryCapacity) {
 
 };
 
-
-document.getElementById('apply').addEventListener('click', function() {
-    const inputField = document.getElementById('inputField');
-    let inputVlue = inputField.value;
-    if (inputVlue == 'stevekaku') {
-        const yourTotal = document.getElementById('TotalAfterDiscount');
-        const totalMoney = yourTotal.innerText;
-        const totalDiscount = (parseFloat(totalMoney) * 20) / 100;
-        yourTotal.innerText = totalMoney - totalDiscount;
-        inputField.value = '';
-    }
-
-})
-
-
-
-
 /* 
 make memory section interactive
  */
@@ -89,3 +72,26 @@ document.getElementById('freeDelivery').addEventListener('click', function() {
 document.getElementById('DeliveryCharge').addEventListener('click', function() {
     memory('extraDeliveryCharge', 'notFree')
 });
+
+//discount part
+document.getElementById('apply').addEventListener('click', function() {
+    const inputField = document.getElementById('inputField');
+    let inputVlue = inputField.value;
+    const warning = document.getElementById('warning');
+    const congratulation = document.getElementById('congratulation');
+    if (inputVlue == 'stevekaku') {
+        const yourTotal = document.getElementById('TotalAfterDiscount');
+        const totalMoney = yourTotal.innerText;
+        const totalDiscount = (parseFloat(totalMoney) * 20) / 100;
+        yourTotal.innerText = totalMoney - totalDiscount;
+        congratulation.style.display = 'block';
+        warning.style.display = 'none';
+
+        inputField.value = '';
+    } else {
+
+        warning.style.display = 'block';
+        congratulation.style.display = 'none';
+    }
+
+})
